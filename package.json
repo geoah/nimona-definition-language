@@ -3,6 +3,10 @@
     "displayName": "Nimona Event Definition Language",
     "description": "",
     "version": "0.0.1",
+    "publisher": "geoah",
+    "repository": {
+        "url": "https://github.com/geoah/nimona-event-definition-language"
+    },
     "engines": {
         "vscode": "^1.38.0"
     },
