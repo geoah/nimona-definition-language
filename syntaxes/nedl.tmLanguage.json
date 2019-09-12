@@ -1,0 +1,115 @@
+{
+	"name": "nedl",
+	"scopeName": "source.nedl",
+	"fileTypes": ["nedl"],
+  
+	"patterns": [
+	  {"include": "#comments"},
+	  {"include": "#package"},
+	  {"include": "#import"},
+	  {"include": "#domain"}
+	],
+  
+	"repository": {
+	  "comments": {
+		"patterns": [
+		  {
+			"name": "comment.block.nedl",
+			"begin": "/\\*",
+			"end": "\\*/"
+		  },
+		  {
+			"name": "comment.line.double-slash.nedl",
+			"begin": "//",
+			"end": "$\\n?"
+		  }
+		]
+	  },
+	  "package": {
+		"match": "\\s*(package)\\s+([A-Za-z0-9\\/-_\\.]+)",
+		"captures": {
+		  "1": {"name": "keyword.other.nedl"},
+		  "2": {"name": "string.unquoted.nedl.package"}
+		}
+	  },
+	  "import": {
+		"match": "\\s*(import)\\s+([A-Za-z0-9\\/-_\\.]+)\\s+([A-Za-z0-9]+)",
+		"captures": {
+		  "1": {"name": "keyword.other.nedl"},
+		  "2": {"name": "string.nedl.import.package"},
+		  "3": {"name": "string.nedl.import.alias"}
+		}
+	  },
+	  "domain": {
+		"begin": "(domain)(\\s+)([A-Za-z][A-Za-z0-9_.]*)(\\s*)(\\{)?",
+		"beginCaptures": {
+		  "1": {"name": "keyword.other.nedl"},
+		  "3": {"name": "entity.name.class.domain.nedl"}
+		},
+		"end": "\\}",
+		"patterns": [
+		  {"include": "#comments"},
+		  {"include": "#event"}
+		]
+	  },
+	  "event": {
+		"begin": "(event)(\\s+)([A-Za-z][A-Za-z0-9_.]*)(\\s*)(\\{)?",
+		"beginCaptures": {
+		  "1": {"name": "keyword.other.nedl"},
+		  "3": {"name": "entity.name.class.event.nedl"}
+		},
+		"end": "\\}",
+		"patterns": [
+		  {"include": "$self"},
+		  {"include": "#field"}
+		]
+	  },
+	  "reserved": {
+		"begin": "(reserved)\\s+",
+		"beginCaptures": {
+		  "1": {"name": "keyword.other.nedl"}
+		},
+		"end": ";",
+		"patterns": [
+		  {
+			"match": "(\\d+)(\\s+(to)\\s+(\\d+))?",
+			"captures": {
+			  "1": {"name": "constant.numeric.nedl"},
+			  "3": {"name": "keyword.other.nedl"},
+			  "4": {"name": "constant.numeric.nedl"}
+			}
+		  },
+		  {"include": "#string"}
+		]
+	  },
+	  "field": {
+		"begin": "\\s*(optional|required)?\\s*([A-Za-z0-9\\@_\\.]+)\\s+([A-Za-z0-9\\@_\\.]+)",
+		"beginCaptures": {
+		  "1": {"name": "storage.modifier.nedl"},
+		  "2": {"name": "variable.other.nedl"},
+		  "3": {"name": "storage.type.nedl"}
+		},
+		"end": "\n"
+	  },
+	  "ident": {
+		"match": "[A-Za-z][A-Za-z0-9_]*",
+		"name": "entity.name.class.nedl"
+	  },
+	  "constants": {
+		"match": "\\b(true|false|max|[A-Z_]+)\\b",
+		"name": "constant.language.nedl"
+	  },
+	  "storagetypes": {
+		"match": "\\b(double|float|int32|int64|uint32|uint64|sint32|sint64|fixed32|fixed64|sfixed32|sfixed64|bool|string|bytes)\\b",
+		"name": "storage.type.nedl"
+	  },
+	  "string": {
+		"match": "('([^']|\\')*')|(\"([^\"]|\\\")*\")",
+		"name": "string.quoted.double.nedl"
+	  },
+	  "number": {
+		"name": "constant.numeric.nedl",
+		"match": "\\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)\\b"
+	  }
+	}
+  }

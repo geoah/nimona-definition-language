@@ -1,0 +1,25 @@
+{
+    "name": "nimona-event-definition-language",
+    "displayName": "Nimona Event Definition Language",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.38.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "nedl",
+            "aliases": ["nedl", "nedl"],
+            "extensions": ["nedl"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "nedl",
+            "scopeName": "source.nedl",
+            "path": "./syntaxes/nedl.tmLanguage.json"
+        }]
+    }
+}
