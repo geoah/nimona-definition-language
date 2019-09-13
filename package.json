@@ -2,7 +2,8 @@
     "name": "nimona-event-definition-language",
     "displayName": "Nimona Event Definition Language",
     "description": "",
-    "version": "0.0.2",
+    "icon": "nimona.png",
+    "version": "0.0.3",
     "publisher": "geoah",
     "repository": {
         "url": "https://github.com/geoah/nimona-event-definition-language"
