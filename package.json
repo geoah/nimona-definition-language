@@ -1,12 +1,12 @@
 {
-    "name": "nimona-event-definition-language",
-    "displayName": "Nimona Event Definition Language",
+    "name": "nimona-definition-language",
+    "displayName": "Nimona Definition Language",
     "description": "",
     "icon": "nimona.png",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "publisher": "geoah",
     "repository": {
-        "url": "https://github.com/geoah/nimona-event-definition-language"
+        "url": "https://github.com/geoah/nimona-definition-language"
     },
     "engines": {
         "vscode": "^1.38.0"
@@ -16,15 +16,15 @@
     ],
     "contributes": {
         "languages": [{
-            "id": "nedl",
-            "aliases": ["nedl", "nedl"],
-            "extensions": ["nedl"],
+            "id": "ndl",
+            "aliases": ["ndl", "ndl"],
+            "extensions": ["ndl"],
             "configuration": "./language-configuration.json"
         }],
         "grammars": [{
-            "language": "nedl",
-            "scopeName": "source.nedl",
-            "path": "./syntaxes/nedl.tmLanguage.json"
+            "language": "ndl",
+            "scopeName": "source.ndl",
+            "path": "./syntaxes/ndl.tmLanguage.json"
         }]
     }
 }
