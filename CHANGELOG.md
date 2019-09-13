@@ -2,5 +2,8 @@
 
 ## 0.0.1
 
-- Initial release
-- Missing array support
+- Add package, import, domain, and event highlighting
+
+## 0.0.2
+
+- Add struct highlighting

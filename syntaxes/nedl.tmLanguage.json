@@ -7,7 +7,8 @@
 	  {"include": "#comments"},
 	  {"include": "#package"},
 	  {"include": "#import"},
-	  {"include": "#domain"}
+	  {"include": "#domain"},
+	  {"include": "#struct"}
 	],
   
 	"repository": {
@@ -64,6 +65,18 @@
 		  {"include": "#field"}
 		]
 	  },
+	  "struct": {
+		"begin": "(struct)(\\s+)([A-Za-z][A-Za-z0-9_.]*)(\\s*)(\\{)?",
+		"beginCaptures": {
+		  "1": {"name": "keyword.other.nedl"},
+		  "3": {"name": "entity.name.class.struct.nedl"}
+		},
+		"end": "\\}",
+		"patterns": [
+		  {"include": "$self"},
+		  {"include": "#field"}
+		]
+	  },
 	  "reserved": {
 		"begin": "(reserved)\\s+",
 		"beginCaptures": {
@@ -83,7 +96,7 @@
 		]
 	  },
 	  "field": {
-		"begin": "\\s*(optional|required)?\\s*([A-Za-z0-9\\@_\\.]+)\\s+([A-Za-z0-9\\@_\\.]+)",
+		"begin": "\\s*(repeated)?\\s*([A-Za-z0-9\\@_\\.]+)\\s+([A-Za-z0-9\\@_\\.]+)",
 		"beginCaptures": {
 		  "1": {"name": "storage.modifier.nedl"},
 		  "2": {"name": "variable.other.nedl"},
