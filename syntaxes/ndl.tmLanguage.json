@@ -1,0 +1,128 @@
+{
+	"name": "ndl",
+	"scopeName": "source.ndl",
+	"fileTypes": ["ndl"],
+  
+	"patterns": [
+	  {"include": "#comments"},
+	  {"include": "#package"},
+	  {"include": "#import"},
+	  {"include": "#domain"},
+	  {"include": "#struct"}
+	],
+  
+	"repository": {
+	  "comments": {
+		"patterns": [
+		  {
+			"name": "comment.block.ndl",
+			"begin": "/\\*",
+			"end": "\\*/"
+		  },
+		  {
+			"name": "comment.line.double-slash.ndl",
+			"begin": "//",
+			"end": "$\\n?"
+		  }
+		]
+	  },
+	  "package": {
+		"match": "\\s*(package)\\s+([A-Za-z0-9\\/-_\\.]+)",
+		"captures": {
+		  "1": {"name": "keyword.other.ndl"},
+		  "2": {"name": "string.unquoted.ndl.package"}
+		}
+	  },
+	  "import": {
+		"match": "\\s*(import)\\s+([A-Za-z0-9\\/-_\\.]+)\\s+([A-Za-z0-9]+)",
+		"captures": {
+		  "1": {"name": "keyword.other.ndl"},
+		  "2": {"name": "string.ndl.import.package"},
+		  "3": {"name": "string.ndl.import.alias"}
+		}
+	  },
+	  "domain": {
+		"begin": "(domain)(\\s+)([A-Za-z][A-Za-z0-9_.]*)(\\s*)(\\{)?",
+		"beginCaptures": {
+		  "1": {"name": "keyword.other.ndl"},
+		  "3": {"name": "entity.name.class.domain.ndl"}
+		},
+		"end": "\\}",
+		"patterns": [
+		  {"include": "#comments"},
+		  {"include": "#event"}
+		]
+	  },
+	  "event": {
+		"begin": "(event)(\\s+)([A-Za-z][A-Za-z0-9_.]*)(\\s*)(\\{)?",
+		"beginCaptures": {
+		  "1": {"name": "keyword.other.ndl"},
+		  "3": {"name": "entity.name.class.event.ndl"}
+		},
+		"end": "\\}",
+		"patterns": [
+		  {"include": "$self"},
+		  {"include": "#field"}
+		]
+	  },
+	  "struct": {
+		"begin": "(struct)(\\s+)([A-Za-z][A-Za-z0-9_.]*)(\\s*)(\\{)?",
+		"beginCaptures": {
+		  "1": {"name": "keyword.other.ndl"},
+		  "3": {"name": "entity.name.class.struct.ndl"}
+		},
+		"end": "\\}",
+		"patterns": [
+		  {"include": "$self"},
+		  {"include": "#field"}
+		]
+	  },
+	  "reserved": {
+		"begin": "(reserved)\\s+",
+		"beginCaptures": {
+		  "1": {"name": "keyword.other.ndl"}
+		},
+		"end": ";",
+		"patterns": [
+		  {
+			"match": "(\\d+)(\\s+(to)\\s+(\\d+))?",
+			"captures": {
+			  "1": {"name": "constant.numeric.ndl"},
+			  "3": {"name": "keyword.other.ndl"},
+			  "4": {"name": "constant.numeric.ndl"}
+			}
+		  },
+		  {"include": "#string"}
+		]
+	  },
+	  "field": {
+		"begin": "\\s*(repeated)?\\s*([A-Za-z0-9\\@_\\.]+)\\s+([A-Za-z0-9\\@_\\.]+)",
+		"beginCaptures": {
+		  "1": {"name": "storage.modifier.ndl"},
+		  "2": {"name": "variable.other.ndl"},
+		  "3": {"name": "storage.type.ndl"}
+		},
+		"end": "\n"
+	  },
+	  "ident": {
+		"match": "[A-Za-z][A-Za-z0-9_]*",
+		"name": "entity.name.class.ndl"
+	  },
+	  "constants": {
+		"match": "\\b(true|false|max|[A-Z_]+)\\b",
+		"name": "constant.language.ndl"
+	  },
+	  "storagetypes": {
+		"match": "\\b(double|float|int32|int64|uint32|uint64|sint32|sint64|fixed32|fixed64|sfixed32|sfixed64|bool|string|bytes)\\b",
+		"name": "storage.type.ndl"
+	  },
+	  "string": {
+		"match": "('([^']|\\')*')|(\"([^\"]|\\\")*\")",
+		"name": "string.quoted.double.ndl"
+	  },
+	  "number": {
+		"name": "constant.numeric.ndl",
+		"match": "\\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)\\b"
+	  }
+	}
+  }
