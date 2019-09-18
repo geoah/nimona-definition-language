@@ -15,3 +15,9 @@
 ## 0.0.4
 
 - Rename nedl to ndl
+
+## 0.0.5
+
+- Move repeated field modifier
+- Add extends keyword for domain
+- Add signed event modifier

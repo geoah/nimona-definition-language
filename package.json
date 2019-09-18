@@ -3,7 +3,7 @@
     "displayName": "Nimona Definition Language",
     "description": "",
     "icon": "nimona.png",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "publisher": "geoah",
     "repository": {
         "url": "https://github.com/geoah/nimona-definition-language"
