@@ -21,3 +21,7 @@
 - Move repeated field modifier
 - Add extends keyword for domain
 - Add signed event modifier
+
+## 0.0.6
+
+- Add abstract domain modifier

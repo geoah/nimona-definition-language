@@ -42,12 +42,13 @@
 			}
 		},
 		"domain": {
-			"begin": "(domain)(\\s+)([A-Za-z][A-Za-z0-9_.]+)(\\s*)(extends)?(\\s*)([A-Za-z][A-Za-z0-9_.]*)(\\{)?",
+			"begin": "(abstract)?(\\s*)(domain)(\\s+)([A-Za-z][A-Za-z0-9_.]+)(\\s*)(extends)?(\\s*)([A-Za-z][A-Za-z0-9_.]*)(\\{)?",
 			"beginCaptures": {
-				"1": {"name": "keyword.other.domain.ndl"},
-				"3": {"name": "entity.name.class.domain.ndl"},
-				"5": {"name": "keyword.other.domain.extends.ndl"},
-				"7": {"name": "entity.name.class.domain.ndl"}
+				"1": {"name": "keyword.other.domain.extends.ndl"},
+				"3": {"name": "keyword.other.domain.ndl"},
+				"5": {"name": "entity.name.class.domain.ndl"},
+				"7": {"name": "keyword.other.domain.extends.ndl"},
+				"9": {"name": "entity.name.class.domain.ndl"}
 			},
 			"end": "\\}",
 			"patterns": [
