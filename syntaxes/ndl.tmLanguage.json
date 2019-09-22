@@ -42,7 +42,7 @@
 			}
 		},
 		"domain": {
-			"begin": "(abstract)?(\\s*)(domain)(\\s+)([A-Za-z][A-Za-z0-9_.]+)(\\s*)(extends)?(\\s*)([A-Za-z][A-Za-z0-9_.]*)(\\{)?",
+			"begin": "(abstract)?(\\s*)(domain)(\\s+)([A-Za-z][A-Za-z0-9\\/_.]+)(\\s*)(extends)?(\\s*)([A-Za-z][A-Za-z0-9/_.]*)(\\{)?",
 			"beginCaptures": {
 				"1": {"name": "keyword.other.domain.extends.ndl"},
 				"3": {"name": "keyword.other.domain.ndl"},
@@ -57,7 +57,7 @@
 			]
 		},
 		"event": {
-			"begin": "\\s*(signed)?\\s*(event)(\\s+)([A-Za-z][A-Za-z0-9_.]+)(\\s*)(\\{)?",
+			"begin": "\\s*(signed)?\\s*(event|command|struct)(\\s+)([A-Za-z][A-Za-z0-9_.]+)(\\s*)(\\{)?",
 			"beginCaptures": {
 				"1": {"name": "storage.modifier.event.ndl"},
 				"2": {"name": "keyword.other.event.ndl"},
@@ -104,7 +104,7 @@
 			]
 		},
 		"field": {
-			"begin": "\\s*([A-Za-z0-9\\@_\\.]+)\\s+(repeated)?\\s*([A-Za-z0-9\\@_\\.]+)",
+			"begin": "\\s*([A-Za-z0-9\\@_\\.]+)\\s+(repeated)?\\s*([A-Za-z0-9\\@_\\/\\.]+)",
 			"beginCaptures": {
 				"1": {"name": "variable.other.ndl"},
 				"2": {"name": "storage.modifier.source.ndl"},
