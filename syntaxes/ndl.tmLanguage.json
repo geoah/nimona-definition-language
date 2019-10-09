@@ -8,7 +8,7 @@
 		{"include": "#package"},
 		{"include": "#import"},
 		{"include": "#domain"},
-		{"include": "#struct"}
+		{"include": "#object"}
 	],
 	
 	"repository": {
@@ -57,7 +57,7 @@
 			]
 		},
 		"event": {
-			"begin": "\\s*(signed)?\\s*(event|command|struct)(\\s+)([A-Za-z][A-Za-z0-9_.]+)(\\s*)(\\{)?",
+			"begin": "\\s*(signed)?\\s*(event|command|object)(\\s+)([A-Za-z][A-Za-z0-9_.]+)(\\s*)(\\{)?",
 			"beginCaptures": {
 				"1": {"name": "storage.modifier.event.ndl"},
 				"2": {"name": "keyword.other.event.ndl"},
@@ -69,11 +69,11 @@
 				{"include": "#field"}
 			]
 		},
-		"struct": {
-			"begin": "(struct)(\\s+)([A-Za-z][A-Za-z0-9_.]*)(\\s*)(\\{)?",
+		"object": {
+			"begin": "(object)(\\s+)([A-Za-z][A-Za-z0-9_.]*)(\\s*)(\\{)?",
 			"beginCaptures": {
 				"1": {"name": "keyword.other.ndl"},
-				"3": {"name": "entity.name.class.struct.ndl"}
+				"3": {"name": "entity.name.class.object.ndl"}
 			},
 			"end": "\\}",
 			"patterns": [

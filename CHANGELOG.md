@@ -29,3 +29,7 @@
 ## 0.0.7
 
 - Allow domains to and types to be fully qualified
+
+## 0.1.0
+
+- Rename struct to object
